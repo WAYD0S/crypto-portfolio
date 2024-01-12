@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <div className='rounded-div flex items-center justify-between h-20 font-bold'>
       <Link to='/'>
-        <h1 className='text-2xl'>Crypto-tracker</h1>
+        <h1 className='text-2xl'>myCrypto</h1>
       </Link>
       <div className='hidden md:block'>
         <ThemeToggle />
@@ -40,7 +40,7 @@ const Navbar = () => {
             <Link to='/'>Home</Link>
           </li>
           <li className='border-b py-6'>
-            <Link to='/'>Account</Link>
+            <Link to='/account'>Account</Link>
           </li>
           <li className='py-6'>
             <ThemeToggle />
