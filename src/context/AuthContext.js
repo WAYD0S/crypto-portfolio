@@ -7,7 +7,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 
-import { doc, set, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 
 const UserContext = createContext();
 
@@ -38,7 +38,7 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ signUp, signIn }}>
+    <UserContext.Provider value={{ signUp, signIn, logout, user }}>
       {children}
     </UserContext.Provider>
   );
