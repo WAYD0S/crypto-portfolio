@@ -2,6 +2,7 @@ import React from 'react'
 import {AiOutlineInstagram} from 'react-icons/ai'
 import {FaFacebook, FaGithub, FaTiktok, FaTwitter} from 'react-icons/fa'
 import ThemeToggle from './ThemeToggle'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -51,7 +52,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <p className='text-center py-4'>Powered by Coin Gecko</p>
+      <p className='text-center py-4'>Powered by Coin Gecko. Built by <Link to='https://github.com/WAYD0S'>Rishabh Raturi</Link></p>
     </div>
   )
 }
