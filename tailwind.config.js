@@ -5,8 +5,14 @@ module.exports = {
   darkmode: 'class',
   theme: {
     extend: {
+      colors: {
+        green: '#00ff00',
+        yellow: '#ffff00',
+        red: '#ff0000',
+      },
       backgroundColor: {
         primary: 'var(--color-bg-primary)',
+        primary2: 'var(--color-bg-primary2)',
         secondary: 'var(--color-bg-secondary)',
         button: 'var(--color-bg-button)',
       },
