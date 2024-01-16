@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# myCrypto-portfolio
+
+This is a fullstack web app which tracks the top 20 cryptocurrencies and other trending coins to give the user a good picture of the current landscape of cryptocurrencies. The user has the ability to view more information for each coin and to save them to a watch list to keep track of them.
+
+The app has user validation and as such the user is able to sign up to the app and keep their own personal data to themselves with the backend being set up on firebase.
+
+## Table of contents
+
+- [Overview](#overview)
+  - [Requirements](#requirements)
+  - [Screenshots](#screenshots)
+  - [Links](#links)
+  - [Getting Started with Create React App](#getting-started-with-create-react-app)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+
+## Overview
+
+### Requirements
+
+- Display important and relavant API data for top cryptocurrencies on front page with another section for trending cryptocurrencies.
+- when a coin is clicked on, a page for the coin should come up which has more in depth information about the coin and a description.
+- User login with validation. User should be able to select to save coins from home page to watch list which will be displayed on the accounts page.
+- Mobile friendly display.
+- Ability to switch themes (light/dark)
+- Sign in/ Sign out and account page should have appropriate functionality for when the user logs in and logs out.
+
+### Screenshots
+
+![screenshot](./public/screenshots/home-page.png)
+![screenshot](./public/screenshots/coin-page.png)
+![screenshot](./public/screenshots/account-page.png)
+
+### Links
+
+- Live Site URL: [@Firebase](https://mycrypto-28bfe.web.app/)
+- Solution URL: [@GitHub](https://github.com/WAYD0S/crypto-portfolio-fullstack)
+
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## My process
 
-In the project directory, you can run:
+Before dwelving intot the project I planned the routes for the project and how the links will be connected on paper based on the data that was available from the API.
 
-### `npm start`
+The initial step was to create the home page which required a connection to the [CoinGecko API](https://www.coingecko.com/api/documentation). Once I was able to display the data producing the full page was significantly easier as it required relatively simple css.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The account page for myCrypto needed to show the saved list of coins from the home page. To set this up  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Built with
 
-### `npm test`
+- React.js components
+- Tailwind CSS (grid and flexbox)
+- React-router for web-app routing
+- Firebase for backend framework
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### What I learned
 
-### `npm run build`
+- One simple thing I changed in comparison to previous projects was the utilisation of ThemeContext.jsx to setup the dark/light theme. ThemeContext.jsx was the context provider where the UI theme was setup. getInitialTheme() was used to gather what the system lighting setting was so that the user automatically got either the light or dark theme according to their preferences.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```js
+const getInitialTheme = () => {
+  if (typeof window !== 'undefined' && window.localStorage) {
+    const storedPrefs = window.localStorage.getItem('color-theme')
+    if (typeof storedPrefs == 'string') {
+      return storedPrefs
+    }
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    const userMedia = window.matchMedia('(prefers-color-scheme: dark)')
+    if(userMedia.matches) {
+      return 'dark'
+    }
+  }
+  return 'light'
+}
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React-router integration into the project made it much smoother and easier to use. Browswer router and its ability to make dynamic changes meant that components of the page didn't have to be reloaded everytime and such the webpage worked more seamlessly. It also made linking pages to each other easier with the `<Link>` tag.
 
-### `npm run eject`
+### Useful resources
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [ReactJS](https://reactjs.org/tutorial/tutorial.html) - How to set up a local development environment on your computer
+- [CoinGecko](https://www.coingecko.com/api/documentation) - API used for the project
+- [Firebase](https://firebase.google.com/) - Utilised for the backend component of the project
+- [React Router](https://www.w3schools.com/react/react_router.asp) - Page routing for React
+- [Tailwind CSS](https://www.w3schools.com/react/react_router.asp) - CSS framework utilised for the project
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Author
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Website - [Rishabh Raturi](https://github.com/WAYD0S)
